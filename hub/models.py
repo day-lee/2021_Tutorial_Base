@@ -50,6 +50,7 @@ class Tutorial(models.Model):
     def __str__(self):
         return str(self.title) + ' | ' + str(self.instructor)
 
+    #functions
 
 class Curriculum(models.Model):
     topic                     = models.CharField(max_length=30, null=True, blank=True)
