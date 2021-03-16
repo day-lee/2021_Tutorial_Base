@@ -82,7 +82,7 @@
                             {% for item in tutorials %}
                             <tr>
                                 <td><button class="btn btn-warning search_btn" type="submit"> Add </button></td>
-                                <td><a href="#">{{item.title}}</a></td>
+                                <td><a href="{% url 'hub:tutorial_detail' item.pk %}">{{item.title}}</a></td>
                                 <td>{{item.instructor}}</td>
                                 <td>{{item.tags}}</td>
                                 <td>{{item.last_updated}}</td>
