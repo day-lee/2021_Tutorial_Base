@@ -1,5 +1,6 @@
 from pathlib import Path
 import my_settings
+import os
 
 SECRET_KEY = my_settings.SECRET
 
@@ -29,6 +30,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'hub',
+
+    'django_filters',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -109,3 +113,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+
