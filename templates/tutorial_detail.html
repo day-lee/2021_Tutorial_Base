@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Introduction {% endblock %}
+{% block content %}
+
+<br>
+<div class="col-md">
+    <div class="card card-body">
+        <h4>Tutorial: {{object.title}} </h4>
+    </div> <br>
+        <div class="card" style="width: auto;">
+            <img src="..." class="card-img-top" alt="img">
+
+            <!-- for demo  -->
+            <div class="row justify-content-center">
+            <div class="col col-md">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/xv_bwpA_aEA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            </div>
+            <div class="card-body">
+            <h5 class="card-title">Description</h5>
+            <p class="card-text">{{object.description}} <br></p>
+        </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> Topic:
+                {% for item in object.tags.all %}
+                {{item}}
+                {% endfor %}
+            </li>
+            <li class="list-group-item"> Difficulty: {{object.difficulty}}</li>
+            <li class="list-group-item"> Instructor: {{object.instructor}}</li>
+            <li class="list-group-item"> Last Updated: {{object.last_updated}}</li>
+            <li class="list-group-item">Language: {{object.language}}</li>
+            <li class="list-group-item"> Duration: {{object.estimated_learning_hours}}</li>
+          </ul>
+        <div class="card-body">
+            <a href="{{object.link}}" class="card-link">{{object.link}}</a>
+        </div>
+    </div>
+</div>
+
+  <!-- Footer -->
+{% include 'footer.html' %}
+{% endblock content %}
