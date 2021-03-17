@@ -50,7 +50,24 @@ class Tutorial(models.Model):
     def __str__(self):
         return str(self.title) + ' | ' + str(self.instructor)
 
-    #functions
+    def get_absolute_url(self):
+        """returns url from product"""
+        return reverse("hub:product", kwargs={  #to the product url (name=product)
+            "pk": self.pk
+        })
+
+    def get_add_to_cart_url(self):
+        """returns url to function add item to curriculum in views"""
+        return reverse("hub:add-to-cart", kwargs={
+            "pk": self.pk
+        })
+
+    def get_remove_from_cart_url(self):
+        """returns url to function remove item from curriculum in views"""
+        return reverse("hub:remove-from-cart", kwargs={
+            "pk": self.pk
+        })
+
 
 class Curriculum(models.Model):
     topic                     = models.CharField(max_length=30, null=True, blank=True)
@@ -58,7 +75,7 @@ class Curriculum(models.Model):
     goal                      = models.CharField(max_length=150, null=True, blank=True)
     note                      = models.CharField(max_length=500, null=True, blank=True)
     user                      = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    tutorial                  = models.ManyToManyField(Tutorial)
+    tutorial                  = models.ManyToManyField(Tutorial, blank=True)
 
     def __str__(self):
         return str(self.user) + ' | ' + str(self.topic)
