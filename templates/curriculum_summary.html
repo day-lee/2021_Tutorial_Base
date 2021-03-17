@@ -24,7 +24,7 @@
     <div class="row justify-content-md-center">
 
         <div class="card card-body" >
-            <h5>Tutorial List</h5>
+            <strong><h5><i class="fas fa-laptop-code"></i> {{ user.username }}'s Curriculum </h5></strong>
 
             <div class="card card-body" style="background-color: red;">
 
@@ -98,7 +98,13 @@
                             </tr>
                             {% for item in curriculum.tutorial.all %}
                             <tr>
-                                <td><button class="btn btn-warning search_btn" type="submit"> Remove </button></td>
+
+
+                                <td><a href="{{ item.get_remove_from_curriculum_url }}"
+                                       class="btn btn-primary btn-md my-0 p" >Remove
+                                </a></td>
+
+
                                 <td><a href="{% url 'hub:tutorial_detail' item.pk %}">{{item.title}}</a></td>
                                 <td>{{item.instructor}}</td>
                                 <td>

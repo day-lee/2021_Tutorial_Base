@@ -56,15 +56,15 @@ class Tutorial(models.Model):
             "pk": self.pk
         })
 
-    def get_add_to_cart_url(self):
+    def get_add_to_curriculum_url(self):
         """returns url to function add item to curriculum in views"""
-        return reverse("hub:add-to-cart", kwargs={
+        return reverse("hub:add-to-curriculum", kwargs={
             "pk": self.pk
         })
 
-    def get_remove_from_cart_url(self):
+    def get_remove_from_curriculum_url(self):
         """returns url to function remove item from curriculum in views"""
-        return reverse("hub:remove-from-cart", kwargs={
+        return reverse("hub:remove-from-curriculum", kwargs={
             "pk": self.pk
         })
 

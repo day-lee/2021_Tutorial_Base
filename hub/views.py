@@ -20,7 +20,7 @@ def HomeView(request):
     myFilter = TutorialFilter(request.GET, queryset=tutorials)
     tutorials = myFilter.qs
     return render(request, 'home.html', {'tutorials': tutorials, 'myFilter': myFilter})
-
+#context name
 
 
 #243, home.html
@@ -33,10 +33,11 @@ def HomeView(request):
 #     tutorials = myFilter.qs
 #     return render(request, 'tutorial_list.html', {'tutorials': tutorials, 'myFilter':myFilter})
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 class TutorialDetailsView(DetailView):
     model = Tutorial
     template_name = 'tutorial_detail.html'
-
+#object
 
 #Register
 class UserRegisterView(generic.CreateView):
@@ -47,15 +48,32 @@ class UserRegisterView(generic.CreateView):
 
 #Curriculum
 @login_required
-def add_to_cart(request, pk):
+def add_to_curriculum(request, pk):
+
+    #if someone clicks my curriculum when there is no curriculum,(not added any tutorial) then redirects to home.
+    #consider this.
+
     tutorial = get_object_or_404(Tutorial, pk=pk)
     Curriculum.objects.get_or_create(user=request.user)
+
+    #어차피 하나면 그냥 curriculum = Curriculum.objects.filter(user= )[0]면 될것 같은데?
     curriculum_queryset = Curriculum.objects.filter(user=request.user)
     curriculum = curriculum_queryset[0]
+
     curriculum.tutorial.add(tutorial)
     messages.info(request, "Tutorial added to your curriculum")
     return redirect("hub:curriculum_summary")
 
+
+@login_required
+def remove_from_curriculum(request, pk):
+    tutorial = get_object_or_404(Tutorial, pk=pk)
+    curriculum = Curriculum.objects.filter(
+                                            user=request.user,
+                                            )[0]
+    curriculum.tutorial.remove(tutorial)
+    messages.info(request, "Tutorial removed from your curriculum")
+    return redirect("hub:curriculum_summary")
 
 
 @login_required
@@ -68,7 +86,6 @@ def CurriculumSummaryView(request):
     except ObjectDoesNotExist:
         messages.error(request, "You do not have a curriculum, start by adding your first tutorial")
         return redirect("/") # CHANGE:  to tutorial list
-
 
 
 class ProductView(DetailView):
