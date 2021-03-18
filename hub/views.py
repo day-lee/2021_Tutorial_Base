@@ -1,13 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Tutorial, Curriculum
 from .filters import TutorialFilter
 from django.views import generic
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from .forms import GoalForm
+
 
 # class HomeView(ListView):
 #     model = Tutorial
@@ -19,8 +21,11 @@ def HomeView(request):
     # tutorial = tutorials.tutoriallist_set.all() parent child relationship case
     myFilter = TutorialFilter(request.GET, queryset=tutorials)
     tutorials = myFilter.qs
+
     return render(request, 'home.html', {'tutorials': tutorials, 'myFilter': myFilter})
 #context name
+
+
 
 
 #243, home.html
@@ -39,11 +44,19 @@ class TutorialDetailsView(DetailView):
     template_name = 'tutorial_detail.html'
 #object
 
-#Register
+#Users
 class UserRegisterView(generic.CreateView):
     form_class = UserCreationForm
     template_name = 'registration/register.html'
     success_url = reverse_lazy('login')
+
+class UserEditView(generic.UpdateView):
+    form_class = UserChangeForm
+    template_name = 'registration/edit_profile.html'
+    success_url = reverse_lazy('hub:home')
+
+    def get_object(self):
+        return self.request.user
 
 
 #Curriculum
@@ -62,7 +75,9 @@ def add_to_curriculum(request, pk):
 
     curriculum.tutorial.add(tutorial)
     messages.info(request, "Tutorial added to your curriculum")
-    return redirect("hub:curriculum_summary")
+
+
+    return redirect("hub:curriculum-summary")
 
 
 @login_required
@@ -73,21 +88,86 @@ def remove_from_curriculum(request, pk):
                                             )[0]
     curriculum.tutorial.remove(tutorial)
     messages.info(request, "Tutorial removed from your curriculum")
-    return redirect("hub:curriculum_summary")
+    return redirect("hub:curriculum-summary")
 
 
 @login_required
 def CurriculumSummaryView(request):
+
+    # curriculum count
+    # curriculum_count = firstCustomer.curriculum_set.get().count()
+    # return render(request, 'base.html', {'curriculum_count': curriculum_count})
+    #
+
+
     try:
         curriculum = Curriculum.objects.get(user=request.user)
         #curriculum = Curriculum.objects.filter(user=request.user) #multiple curriculums...
-        context = {'curriculum': curriculum}
-        return render(request, 'curriculum_summary.html', context)
+        # context = {'curriculum': curriculum}
+
+        tutorials = curriculum.tutorial.all()
+
+        #tutorials = tutorials.tutoriallist_set.all() parent child relationship case
+        myFilter = TutorialFilter(request.GET, queryset=tutorials)
+        tutorials = myFilter.qs
+
+        curriculum_count = tutorials.count()
+        context = {'curriculum': curriculum, 'tutorials': tutorials, 'myFilter': myFilter, 'curriculum_count': curriculum_count}
+        return render(request, 'curriculum_summary.html', context )
+
+        # return render(request, 'curriculum_summary.html', context)
+
     except ObjectDoesNotExist:
         messages.error(request, "You do not have a curriculum, start by adding your first tutorial")
         return redirect("/") # CHANGE:  to tutorial list
 
 
+#6 {% if request.user == curriculum.user %}
+@login_required()
+def UpdateGoalView(request, pk):
+    goal = Curriculum.objects.get(id=pk)
+    user_goal =Curriculum.objects.get(user=request.user)
+
+    form = GoalForm(instance=goal)
+    curriculum = Curriculum.objects.filter(user=request.user)
+
+
+    context = {'goal': goal, 'form': form, 'curriculum': curriculum, 'user_goal':user_goal}
+    #return render(request, 'update_goal.html', context)
+
+    # m = Membership.objects.filter(person__name='x').values('person', 'person__phonenumber').
+
+    if request.method == 'POST':
+        form = GoalForm(request.POST, instance=goal)
+        if form.is_valid():
+            form.save()
+            return redirect('curriculum-summary')
+    return render(request, 'update_goal.html', context)
+
+#<a href="{% url 'hub:update-goal' pk %}">Update</a>
+# https://stackoverflow.com/questions/49592361/reverse-for-update-with-arguments-not-found-1-patterns-tried-veh
+
+
+
+# def update_task(request, pk):
+#     task = Task.objects.get(id=pk)
+#     form = TaskForm(instance=task)
+#     context = {'form': form}
+#
+#     return render(request, 'tasks/update_task.html', context)
+
+
+
+
+
+class ContactView(ListView):
+    model = Tutorial
+    template_name = 'contact.html'
+
+# TEST
+
 class ProductView(DetailView):
     model = Tutorial
     template_name = 'product.html'
+
+#home.html line20  <button type="button" class="btn btn-dark btn-lg download-button"> Register for Free</button>
