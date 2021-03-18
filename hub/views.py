@@ -4,12 +4,14 @@ from .models import Tutorial, Curriculum
 from .filters import TutorialFilter
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.views import PasswordChangeView, PasswordChangeForm
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from .forms import GoalForm
+from .forms import GoalForm, PasswordEditForm
 from .forms import EditProfileForm
+
 
 # class HomeView(ListView):
 #     model = Tutorial
@@ -57,6 +59,11 @@ class UserEditView(generic.UpdateView):
 
     def get_object(self):
         return self.request.user
+
+class PasswordEditView(PasswordChangeView):
+    form_class = PasswordEditForm
+    success_url = reverse_lazy('hub:home')
+
 
 
 #Curriculum
