@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Update Goal {% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if user.id == goal.user.id %}
+<br><br><br><br>
+
+<h1> Update Study Goals </h1>
+<br>
+
+<div class="row justify-content-center">
+    <div class="col-sm-6">
+        <div class="card card-body">
+        <div class="form-group">
+
+ <h2><i class="fas fa-bullseye"></i>
+     Tips for Successful Goal Setting!</h2>
+            <div class="help_goal">
+
+                <ul>
+                    <li>1. Set specific and measurable goals.
+                    <li>2. Create an action plan and timeline.
+                    <li>3. Choose a reward for yourself!
+                    <br/>
+                </ul>
+            </div>
+
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary" type="submit"> Update </button>
+
+
+    </form>
+</div>
+           </div></div></div></div>
+    {% endif %}
+{% endif %}
+
+{% endblock content %}
+
