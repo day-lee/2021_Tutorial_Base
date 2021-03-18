@@ -32,7 +32,7 @@ urlpatterns = [
 	path('product/<pk>/', ProductView.as_view(), name='product'),
 
 	#path('add-goal', AddGoalView.as_view(), name="add-goal"),
-	path('goal/edit/<int:pk>', views.UpdateGoalView, name='update-goal'),
+	path('edit/goal/<int:pk>', views.UpdateGoalView, name='update-goal'),
 
 
 	path('contact/', ContactView.as_view(), name='contact'),

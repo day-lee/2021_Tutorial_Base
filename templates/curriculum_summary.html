@@ -20,12 +20,17 @@
 <!--Goal & Note Form-->
 
 <div>
-          <h5><i class="fas fa-flag-checkered"></i>
-              what is your learning goals? - {{ curriculum.goal}}<br><br>
+          <h2><i class="fas fa-flag-checkered"></i> Goals
+              <a href="{% url 'hub:update-goal' profile.pk %}"> (edit goals)</a> </h2>
+              <div class="row justify-content-md-center">
+                <div class="col-md-8 form-group is-valid">
+                  <hr> {{curriculum.user.profile.goal}} </h2><hr>
+                </div>
+              </div>
 
-              <br>@{{curriculum.user}}@{{curriculum.user.id}}</h5> <br> edit(different page) remove <hr>
 </div>
 <!--Goal & Note Form-->
+
 <!--Total number of Tutorials-->
 <div class="tutorial-count">
 <div class="tutorial-count">

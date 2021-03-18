@@ -2,6 +2,7 @@
 {% block title %} Edit Profile {% endblock %}
 {% block content %}
 
+{% if user.is_authenticated %}
 <div class="container">
 <h1> Edit Profile </h1>
     <div class="form-group">
@@ -16,8 +17,8 @@
 				<div class="card card-body table-responsive">
 					<table class="table">
                         <p><label for="id_username">Username:</label> <input type="text" name="username" value="Admin" class="form-control" maxlength="100" required id="id_username"></p>
-                        <p><label for="id_password">Password:</label> <div id="id_password">
-                        </div> <a href="../change-password/"> Click Here</a></p>
+                        <p><label for="id_password">Password:</label> <div id="id_password"></div>
+                         <a href="../change-password/"> Click Here to Change Password </a></p>
                         <p><label for="id_first_name">First name:</label> <input type="text" name="first_name" value="Dayeon" class="form-control" maxlength="100" required id="id_first_name"></p>
                         <p><label for="id_last_name">Last name:</label> <input type="text" name="last_name" value="Lee" class="form-control" maxlength="100" required id="id_last_name"></p>
                         <p><label for="id_email">Email:</label> <input type="email" name="email" value="iamdayeonlee@gmail.com" class="form-control" required id="id_email"></p> <br/>
@@ -32,5 +33,5 @@
 
 
 
-
+{% endif %}
 {% endblock %}
