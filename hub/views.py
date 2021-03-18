@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import GoalForm
-
+from .forms import EditProfileForm
 
 # class HomeView(ListView):
 #     model = Tutorial
@@ -51,7 +51,7 @@ class UserRegisterView(generic.CreateView):
     success_url = reverse_lazy('login')
 
 class UserEditView(generic.UpdateView):
-    form_class = UserChangeForm
+    form_class = EditProfileForm
     template_name = 'registration/edit_profile.html'
     success_url = reverse_lazy('hub:home')
 
