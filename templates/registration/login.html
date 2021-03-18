@@ -5,7 +5,7 @@
 
   <div class="container">
 
-
+<hr><hr><hr>
 <h1> Login </h1>
 <br/>
 <div class="row justify-content-center">
@@ -16,13 +16,15 @@
     <form method="POST">
  {% csrf_token %}
         <br>
-        <div><label for="id_username"><p>Username</p></label>
-            <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username"></div>
+        <div><label for="id_username"><p>Username</p></label><br>
+            <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username"
+            maxlength="150" required id="id_username" placeholder="username"></div>
         <br>
-        <div><label for="id_password"><p>Password</p></label>
-            <input type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="password"></div>
+        <div><label for="id_password"><p>Password</p></label><br>
+            <input type="password" name="password" autocomplete="current-password" required id="id_password"
+            placeholder="password"></div>
         <br/>
-        <button class="btn btn-secondary"> Login </button>
+        <button class="btn btn-primary"> Login </button>
     </form>
 </div>
 </div>

@@ -1,5 +1,9 @@
 /* nav*/
 
+    .navbar {
+         background-color: #d9e4dd;
+    }
+
     .navbar-brand {
         margin-bottom: 0px;
         font-size: 25px;
@@ -60,7 +64,7 @@
 	}
 
     h1 {
-		font-family: 'Sacramento', serif;
+		font-family:
 		font-size: 2rem;
 		line-height: 3rem;
 		color: #060930;
@@ -144,6 +148,11 @@
 
 	}
 
+	.register-button {
+	    font-weight: 400;
+
+	}
+
 /* footer */
 	.velog {
 	    width: 2.5rem;
@@ -164,18 +173,50 @@
 	}
 
 
-	/* tutorial_list */
-	.reset_btn {
-	    text-decoration: none;
+	/* Tutorial List */
+
+	.tutorial-title {
+	    color: #343a40;
+	    font-size: 100%;
+	    font-weight: 900;
+	}
+
+
+    .form-control-sm {
+        height: auto;
+    }
+
+    /* Filter Bar*/
+
+	.filter-bar {
+	    background-color: #214151;
 	    color: white;
-	    font-family: ;
-	    margin-top: 25px;
-	    height: 36px;
+	    padding-bottom: 0px;
+	    padding-top: 0.8rem;
+	    padding-right: 1.2rem;
 
 	}
 
+
+	.reset_btn {
+	    height: 40px;
+	    margin-top: 1.9rem;
+	    padding-left: 15%;
+	    padding-right: 15%;
+
+	}
+
+    .reset_btn_a {
+        text-decoration: none;
+	    color: white;
+	    font-family: ;
+	    font-size: 0.9rem;
+    }
+
     .search_btn {
-        margin-top: 1.5rem;
+
+        margin-top: 2rem;
+       /* font-size: 0.8rem;   padding-left: 1px;*/
 
     }
 
@@ -215,9 +256,23 @@
 		color: white;
 	}
 
-/* register*/
+/* Register*/
 
     .helptext{
         font-family: 'Merriweather', serif;
 		font-size: 100%;
+		padding-left: 9%;
+		display: inline-block;
+        text-align:left;
     }
+
+
+
+/* Curriculum Summary*/
+
+    .tutorial-count{
+        text-align: right;
+        color: rgba(0,0,0,.7);
+    }
+
+

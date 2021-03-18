@@ -2,11 +2,9 @@
 {% block title %} Introduction {% endblock %}
 {% block content %}
 
-<br>
+<br><br><br>
 <div class="col-md">
-    <div class="card card-body">
-        <h4>Tutorial: {{object.title}} </h4>
-    </div> <br>
+
         <div class="card" style="width: auto;">
             <img src="..." class="card-img-top" alt="img">
 
@@ -18,11 +16,16 @@
             </div>
 
             <div class="card-body">
+                 <h4>Tutorial: {{object.title}} <hr>
+                     <a href="{{ object.get_add_to_cart_url }}"
+                        class="btn btn-primary btn-md my-0 p" >Add to Curriculum
+                     </a> <a href="{% url 'hub:home' %}"
+                        class="btn btn-secondary btn-md my-0 p" >Back to Tutorial List
+             </a>  <br><br> </h4>
 
 
-             <a href="{{ object.get_add_to_cart_url }}"
-              class="btn btn-primary btn-md my-0 p" >Add to Curriculum
-             </a> <br><br>
+
+
 
 
             <h5 class="card-title">Description</h5>
@@ -38,7 +41,7 @@
             <li class="list-group-item"> Instructor: {{object.instructor}}</li>
             <li class="list-group-item"> Last Updated: {{object.last_updated}}</li>
             <li class="list-group-item">Language: {{object.language}}</li>
-            <li class="list-group-item"> Duration: {{object.estimated_learning_hours}}</li>
+            <li class="list-group-item"> Duration: Average {{object.duration}} minutes</li>
           </ul>
         <div class="card-body">
             <a href="{{object.link}}" class="card-link">{{object.link}}</a>
@@ -46,6 +49,4 @@
     </div>
 </div>
 
-  <!-- Footer -->
-{% include 'footer.html' %}
 {% endblock content %}

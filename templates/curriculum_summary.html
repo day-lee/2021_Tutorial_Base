@@ -2,33 +2,82 @@
 {% block title %} {{ user.username }}'s Curriculum {% endblock %}
 {% block content %}
 
-
-<main>
-    <div class= "container">
-        <div class="table-responsive text-nowrap">
-    <h3>
-        <strong>Your Curriculum</strong>
-    </h3>
-<!--Goal & Note Form-->
-
-
-<!--Goal & Note Form-->
+{% if user.is_authenticated %}
+    {% if user.id == curriculum.user.id %}
+<br><br><br>
 <main>
     <div class="container">
       <!--Section: Products v.3-->
       <section class="text-center mb-4">
 
 <!--Table: Tutorials List-->
-<br>
+<br><strong><h2><i class="fas fa-laptop-code"></i> {{ user.username }}'s Curriculum </h2></strong><br>
 <div class="container-fluid">
     <div class="row justify-content-md-center">
 
         <div class="card card-body" >
-            <strong><h5><i class="fas fa-laptop-code"></i> {{ user.username }}'s Curriculum </h5></strong>
 
-            <div class="card card-body" style="background-color: red;">
+<!--Goal & Note Form-->
 
-            <!--Filter-->
+<div>
+          <h5><i class="fas fa-flag-checkered"></i>
+              what is your learning goals? - {{ curriculum.goal}}<br><br>
+
+              <br>@{{curriculum.user}}@{{curriculum.user.id}}</h5> <br> edit(different page) remove <hr>
+</div>
+<!--Goal & Note Form-->
+<!--Total number of Tutorials-->
+<div class="tutorial-count">
+<div class="tutorial-count">
+        <span class="text-right"> Total: {{curriculum_count}} </span>
+</div>
+<!--Total number of Tutorials-->
+
+ <!--table-->
+            <table class="table">
+                <tr>
+                    <th> </th>
+                    <th> Title</th>
+                    <th> Instructor</th>
+
+                    <th> Tags</th>
+                    <th> Last Updated</th>
+                    <th> Difficulty</th>
+                    <th> Language</th>
+                    <th> Duration</th>
+                </tr>
+
+                {% for item in tutorials %}
+                <tr>
+
+
+                    <td><a href="{{ item.get_remove_from_curriculum_url }}"
+                           class="btn btn-danger btn-md my-0 p">Remove
+                    </a></td>
+
+
+                    <td><a href="{% url 'hub:tutorial_detail' item.pk %}">{{item.title}}</a></td>
+                    <td>{{item.instructor}}</td>
+                    <td>
+                        {% for tag in item.tags.all %}
+                        {{ tag }}
+                        {% endfor %}
+                    </td>
+                    <td>{{item.last_updated}}</td>
+                    <td>{{item.difficulty}}</td>
+                    <td>{{item.language}}</td>
+                    <td>{{item.duration}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+         <!--Table: Tutorials List-->
+<!--   card     -->
+        </div>
+
+
+
+<!--Filter-->
+            <div class="card card-body filter-bar">
 
             <form method="get">
 
@@ -70,80 +119,24 @@
                     </select>
                 </div>
 
-                <div class="col-sm-1 ">
-                    <button class="btn btn-warning search_btn" type="submit"> Search </button>
-                </div>
+                  <div class="col-sm-1 ">
+                    <button class="btn btn-warning btn-md search_btn" type="submit"> Search </button>
+                  </div>
 
                   <div class="col-sm-1 ">
-                  <button class ="btn btn-secondary reset_btn" type="submit"> <a class ="reset_btn" href="{% url 'hub:home'%}"> Reset </a > </button >
+                    <button class ="btn btn-secondary btn-sm reset_btn" type="submit">
+                    <a class ="reset_btn_a" href="{% url 'hub:curriculum-summary'%}"> Reset </a > </button >
                   </div>
 
                 </div>
             </form>
-            <!--Filter-->
+
         </div>
-
-
-                        <table class="table">
-                            <tr>
-                                <th> Remove </th>
-                                <th> Title</th>
-                                <th> Instructor</th>
-
-                                <th> Tags</th>
-                                <th> Last Updated</th>
-                                <th> Difficulty</th>
-                                <th> Language</th>
-                                <th> Duration</th>
-                            </tr>
-                            {% for item in curriculum.tutorial.all %}
-                            <tr>
-
-
-                                <td><a href="{{ item.get_remove_from_curriculum_url }}"
-                                       class="btn btn-primary btn-md my-0 p" >Remove
-                                </a></td>
-
-
-                                <td><a href="{% url 'hub:tutorial_detail' item.pk %}">{{item.title}}</a></td>
-                                <td>{{item.instructor}}</td>
-                                <td>
-                                    {% for tag in item.tags.all %}
-                                    {{ tag }}
-                                    {% endfor %}
-                                </td>
-                                <td>{{item.last_updated}}</td>
-                                <td>{{item.difficulty}}</td>
-                                <td>{{item.language}}</td>
-                                <td>{{item.duration}}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                </div>
-    </div>
+<!-- row   -->
 </div>
-<!--Table: Tutorials List-->
+<!--  contatiner  -->
+</div>
 
-
-
-
-
-
-
-
-
-            </div>
-            <!--Card-->
-
-          </div>
-          <!--Fourth column-->
-
-        </div>
-        <!--Grid row-->
-
-      </section>
-      <!--Section: Products v.3-->
 
       <!--Pagination-->
       <nav class="d-flex justify-content-center wow fadeIn">
@@ -185,12 +178,15 @@
       </nav>
       <!--Pagination-->
 
-    </div>
-  </main>
 
+</main>
 
+{% else %}
 
+Please log in
 
+{% endif%}
+{% endif%}
 
 
 

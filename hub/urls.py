@@ -5,6 +5,7 @@ from .views import (HomeView,
 					UserRegisterView,
 					CurriculumSummaryView,
 					ProductView,
+					ContactView
 					)
 
 app_name = 'hub'
@@ -17,7 +18,14 @@ urlpatterns = [
 	path('add-to-curriculum/<pk>/', views.add_to_curriculum, name='add-to-curriculum'),
 	path('remove-from-curriculum/<pk>/', views.remove_from_curriculum, name='remove-from-curriculum'),
 
-	path('curriculum_summary/', CurriculumSummaryView, name='curriculum_summary'),
+	path('curriculum-summary/', CurriculumSummaryView, name='curriculum-summary'),
 
 	path('product/<pk>/', ProductView.as_view(), name='product'),
+
+	#path('add-goal', AddGoalView.as_view(), name="add-goal"),
+	path('goal/edit/<int:pk>', views.UpdateGoalView, name='update-goal'),
+
+	path('goal/edit/<int:pk>', views.UpdateGoalView, name='update-goal'),
+	path('contact/', ContactView.as_view(), name='contact'),
+
 ]
