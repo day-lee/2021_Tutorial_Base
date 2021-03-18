@@ -6,17 +6,19 @@
 <div class="col-md">
 
         <div class="card" style="width: auto;">
-            <img src="..." class="card-img-top" alt="img">
+            <img src="..." class="card-img-top" alt="">
 
             <!-- for demo  -->
             <div class="row justify-content-center">
-            <div class="col col-md">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/xv_bwpA_aEA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="col col-md"><hr>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{object.video}}"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                         gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             </div>
 
             <div class="card-body">
-                 <h4>Tutorial: {{object.title}} <hr>
+                 <h4>Title: {{object.title}} <hr>
                      <a href="{{ object.get_add_to_cart_url }}"
                         class="btn btn-primary btn-md my-0 p" >Add to Curriculum
                      </a> <a href="{% url 'hub:home' %}"
@@ -29,7 +31,9 @@
 
 
             <h5 class="card-title">Description</h5>
-            <p class="card-text">{{object.description}} <br></p>
+            <div class="description">
+            <p class="card-text">{{object.description|slice:"100"|safe}} <br></p>
+            </div>
         </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"> Topic:

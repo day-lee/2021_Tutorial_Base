@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Tutorial, Curriculum
+from .models import Tutorial, Curriculum, Profile
 from .filters import TutorialFilter
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
@@ -83,7 +83,6 @@ def add_to_curriculum(request, pk):
     curriculum.tutorial.add(tutorial)
     messages.info(request, "Tutorial added to your curriculum")
 
-
     return redirect("hub:curriculum-summary")
 
 
@@ -119,7 +118,10 @@ def CurriculumSummaryView(request):
         tutorials = myFilter.qs
 
         curriculum_count = tutorials.count()
-        context = {'curriculum': curriculum, 'tutorials': tutorials, 'myFilter': myFilter, 'curriculum_count': curriculum_count}
+
+        profile = Profile.objects.get(user=request.user)
+        context = {'curriculum': curriculum, 'tutorials': tutorials, 'myFilter': myFilter,
+                   'curriculum_count': curriculum_count, 'profile': profile}
         return render(request, 'curriculum_summary.html', context )
 
         # return render(request, 'curriculum_summary.html', context)
@@ -132,23 +134,18 @@ def CurriculumSummaryView(request):
 #6 {% if request.user == curriculum.user %}
 @login_required()
 def UpdateGoalView(request, pk):
-    goal = Curriculum.objects.get(id=pk)
-    user_goal =Curriculum.objects.get(user=request.user)
-
+    goal = Profile.objects.get(id=pk)
+    user_goal = Profile.objects.get(user=request.user)
     form = GoalForm(instance=goal)
     curriculum = Curriculum.objects.filter(user=request.user)
-
-
     context = {'goal': goal, 'form': form, 'curriculum': curriculum, 'user_goal':user_goal}
     #return render(request, 'update_goal.html', context)
-
-    # m = Membership.objects.filter(person__name='x').values('person', 'person__phonenumber').
 
     if request.method == 'POST':
         form = GoalForm(request.POST, instance=goal)
         if form.is_valid():
             form.save()
-            return redirect('curriculum-summary')
+            return redirect('hub:curriculum-summary')
     return render(request, 'update_goal.html', context)
 
 #<a href="{% url 'hub:update-goal' pk %}">Update</a>

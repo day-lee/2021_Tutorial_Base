@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import Profile
 from django.forms import ModelForm
 from .models import Curriculum
 from django.contrib.auth.forms import (
@@ -12,8 +13,8 @@ from django.contrib.auth.forms import (
 class GoalForm(forms.ModelForm):
 
     class Meta:
-        model       = Curriculum
-        fields      = '__all__' #('goal',)
+        model       = Profile
+        fields      = ( 'goal',)
 
 
 class EditProfileForm(UserChangeForm):
@@ -24,7 +25,7 @@ class EditProfileForm(UserChangeForm):
 
     class Meta:
         model       = User
-        fields      = ('username', 'password', 'first_name', 'last_name', 'email',  )
+        fields      = ('username', 'password', 'first_name', 'last_name', 'email', )
 
 
 class PasswordEditForm(PasswordChangeForm):
