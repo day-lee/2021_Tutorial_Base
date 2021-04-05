@@ -1,7 +1,4 @@
 
-
-
-altgraph==0.17
 appdirs==1.4.4
 appier==1.21.3
 asgiref==3.3.1
@@ -45,10 +42,8 @@ pytz==2021.1
 pywin32-ctypes==0.2.0
 
 six==1.15.0
-soupsieve==2.1
 
 sqlparse==0.4.1
-traitlets==5.0.5
 
 typing-extensions==3.7.4.3
 urllib3==1.26.2
