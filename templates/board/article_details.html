@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %} Create a new blog post {% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="container-fluid">
+<!-- Page Title  -->
+    <div class="row">
+        <div class="col-md-6 white-space">
+            <br><strong><span class="title-community"><i class="fas fa-chalkboard-teacher chalkboard"></i> Community </span></strong> <span> Share knowledge, Find study mate!</span>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+<!-- Page Title  -->
+<!--Post Body-->
+    <div class="row justify-content-md-center text-left ">
+         <div class="col-md-6">
+
+             <div class="card">
+                <div class="card-body post-card" >
+                    <h4 class="card-title"><strong>{{ post.title }}</strong></h4>
+                    <p class="card-subtitle mb-2 text-muted">{{ post.author.username }} - {{ post.post_created}}</p>
+                    <hr style="width: 100%;">
+                    <p class="card-text text-left board-body-text"> {{ post.body|safe }}</p>
+<!--Post Body-->
+
+<!--Buttons-->
+<div class="row">
+<div class="col post-detail-buttons">
+    <a href="{% url 'community:board' %}" class="btn btn-sm btn-secondary"> Back </a>
+        {% if user.is_authenticated %}
+            {% if user.id == post.author.id %}
+                <a href="{% url 'community:update_post' post.pk %}" class="btn btn-sm btn-secondary"> Edit </a>
+                <a href="{% url 'community:delete_post' post.pk %}" class="btn btn-sm btn-secondary"> Delete </a></small>
+            {% endif %}
+        {% endif %}
+<!--Buttons-->
+<br><br>
+    <div class="row">
+        {% if not post.comments.all %}
+            <a href="{% url 'community:add_comment' post.pk %}" class="btn btn-sm page-active">Add Comment</a>
+        {% else %}
+            <a href="{% url 'community:add_comment' post.pk %}" class="btn btn-sm page-active"> Add Comment </a>
+    </div>
+<!--Comment-->
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item ">
+
+        {% for comment in post.comments.all %}
+            <strong>{{ comment.name }} - {{ comment.date_added }}</strong>
+            <br>
+            {{ comment.body }}
+            <br><br><hr style="width: 100%;">
+        {% endfor %}
+         </li>
+        {% endif %}
+    </ul>
+
+<!--Comment-->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} New Post {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container-fluid">
+<br><br><br>
+    <div class="row">
+        <div class="col-md-6 white-space">
+            <br><strong><span class="title-community"><i class="far fa-comment"></i> Add Post </span></strong>
+            <span></span>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="card card-body" >
+                <div class="form-group">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.media }}
+                        {{ form.as_p }}
+                        <br/>
+                        <button class="btn btn-secondary"> Post </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("users_id").value
+             = name;
+
+</script>
+
+{% else %}
+
+<div class="container-fluid">
+<br><br><br>
+    <div class="row justify-content-md-center">
+        <div class="col-md login-needed">
+            <br><strong><span class="title-community"><i class="fas fa-exclamation-triangle"></i> Login needed </span></strong>
+            <span></span>
+        </div>
+    <div class="row justify-content-md-center ">
+        <div class="col-md ">
+            <h4>You are not allowed to write a post. <br>Please log in.</h4>
+            <a class="nav-link " href="{% url 'login' %}"> Login</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endif %}
+
+{% endblock %}

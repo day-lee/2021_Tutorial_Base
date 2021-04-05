@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %} Community {% endblock %}
+{% block content %}
+
+
+{% load hub_extras %}
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 white-space">
+            <br><strong><span class="title-community"><i class="fas fa-chalkboard-teacher chalkboard"></i> Community </span></strong> <span> Share knowledge, Find study mate!</span>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+
+    <div class="container-fluid ">
+        <div class="row justify-content-md-center ">
+             <div class="col-md-8">
+                <div class="card card-body study-goal-card" >
+
+      <div class="row justify-content-md-center ">
+        <div class="col">
+          <a href="{% url 'community:add-post' %}"><i class="fas fa-pencil-alt btn-lg "></i></a>
+        </div>
+      </div>
+<!-- Board List-->
+    <table class="table">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+        <tbody>
+            <tr>
+        {% for post in object_list %}
+              <td style="text-align:left"><a href="{% url 'community:article-detail' post.pk %}">
+                    {{ post.title }}</a></td>
+              <td>{{ post.author.username }}</td>
+              <td>{{ post.post_date}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+<!-- Board List-->
+<!--  Pagination  -->
+<div class="row justify-content-md-center ">
+    <div class="col-md-8">
+      {% if is_paginated %}
+<!-- Previous -->
+          {% if page_obj.has_previous %}
+             <a class="btn-sm mb-4 page-btn" href="?page=1">First</a>
+             <a class="btn-sm mb-4 page-btn" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+          {% endif%}
+<!-- List -->
+          {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+              <a class="btn-sm page-active mb-4" href="?page={{ num }}">{{ num }}</a>
+          {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+              <a class="btn-sm mb-4 page-btn" href="?page={{ num }}">{{ num }}</a>
+          {% endif %}
+          {% endfor %}
+<!--   Next       -->
+          {% if page_obj.has_next %}
+             <a class="btn-sm mb-4 page-btn" href="?page={{ page_obj.next_page_number}}">&raquo;</a>
+             <a class="btn-sm mb-4 page-btn" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+          {% endif%}
+      {% endif %}
+<!--  Pagination  -->
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
