@@ -1,31 +1,59 @@
-/* nav*/
+/* base */
 
+    .message-bar {
+        margin-top: 56px;
+    }
+
+    .btn {
+        margin: .375rem;
+        color: white;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        font-size: 75%;
+        word-wrap: break-word;
+        white-space: normal;
+        cursor: pointer;
+        border: 0;
+        border-radius: .3rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        margin: auto;
+        vertical-align: middle;
+        padding-right: 1.1rem;
+        padding-left: 1.1rem;
+    }
+
+/* nav*/
     .navbar {
-         background-color: #d9e4dd;
+         background-color: #a2d0c1;
     }
 
     .navbar-brand {
         margin-bottom: 0px;
-        font-size: 25px;
+        font-size: 1.3rem;
         font-family: ubuntu;
-        font-weight: bold;
+        font-weight: 800;
     }
+
     .nav-link {
         padding-top: 4px;
-        font-size: 1.1rem;
-
+        font-size: 1rem;
     }
+
     .nav-item {
         height: 30px;
     }
 
+    .black-text {
+        padding-top: 7px;
+    }
 
 
 /* index */
 	.colored-section {
-	    background-color: #d9e4dd;
+	    background-color: #red;
 	    padding: 50px 0 30px 0;
-
 	}
 
 	.white-section {
@@ -33,18 +61,33 @@
 	}
 
     body {
-		font-family: ;
-		font-size: 100%;
+		font-family:sans-serif;
+		font-size: 90%;
 		margin: 0;
 		text-align: center;
 	}
 
-
-	.top-container {
-		background-color: #d9e4dd;
-		padding: 50px 0 30px 0;
-	
+	.intro-container {
+		background-color: #214151;
+		padding: 1% 1%;
+		color: #ffffff;
+		font-family: sans-serif;
+		font-size: 1.5rem;
+		line-height: 3rem;
 	}
+
+	.info-container {
+		background-color: #ffc107;
+		padding: 1% 1%;
+		color: ;
+		font-family: sans-serif;
+		font-size: 1.2rem;
+		line-height: 3rem;
+	}
+
+    .container {
+        padding-top: 0px;
+    }
 
 	.middle-container {
 		background-color: #fbf7f0;
@@ -52,35 +95,58 @@
 	}
 
 	.contact-me {
-		background-color:#fbf7f0;
 		padding: 50px auto 50px auto;
-		
 	}
 
-	.bottom-container {
-		background-color:#c6b497;
-		padding: 30px 0 30px 0;
-		position: relative;
+	.register-button {
+	    font-weight: 900;
+        color: black;
+        font-size: 0.8rem;
+        font-family:sans-serif;
+        padding-top: 3%;
+        padding-bottom: 3%;
 	}
+
+	.goto-curriculum-button {
+	    font-weight: 400;
+        color: #ffffff;
+        font-size: 0.8rem;
+        font-family:sans-serif;
+        padding-top: 3%;
+        padding-bottom: 3%;
+	}
+
+	.big-heading {
+	     font-weight: 700;
+	}
+
 
     h1 {
-		font-family:
+		font-family: sans-serif;
 		font-size: 2rem;
 		line-height: 3rem;
-		color: #060930;
+		color: black;
 		margin: 10px auto 0 auto;
 	}
 
 	h2 {
-		color:#31326f;
+
 		font-family: ;
 		font-weight: normal;
 		font-size: 1.5rem;
 		margin: 0 auto 20px auto;
+		line-height: 1.7rem;
 	}
 
 	h3 {
 		color:#595b83;
+		font-family: ;
+		font-size: 1rem;
+		margin: 0 auto 20px auto;
+	}
+
+	h4 {
+		color:black;
 		font-family: ;
 		font-size: 1rem;
 		margin: 0 auto 20px auto;
@@ -93,21 +159,17 @@
 		height:10px;
 		width: 70%;
 		margin-top: 0px;
-	  }
+	}
 
 	a {
 		color:#31326f;
-		font-family: 'Montserrat', serif;
-		font-size: 0.9rem;
 		margin: 0 auto 20px auto;
-
 	}
 
 	p {
 		color: #31326f;
-		font-family: 'Montserrat', serif;
-		font-size: 1rem;
-		margin: 0 auto 20px auto;
+		font-size: 0.9rem;
+		margin: 3px auto 3px auto;
 	}
 
 	.button1 {
@@ -115,29 +177,48 @@
 		margin-right: 10px;
 		position: relative;
 		left: 380px;
-		color: white;
+		color: #ffffff;
 		display: inline-block;
 		position: relative;
 		left: 400px;
 	}
 
+	.title-image {
+	    width: 95%;
+	    height: 95%;
+	}
+
+/* Forms */
+
+    .form-style {
+        border-color: none;
+    }
+
+/* Contact */
+    .features {
+        padding-top: 3%;
+    }
+
+    .contact-icons {
+        font-size: 4rem;
+    }
+
 	.apple {
 		position: relative;
-	}
-	 
-	 .btn:hover {
-		background:  #c6b497;
-		border: solid #c6b497 0;
-		text-decoration: none;
-		color: white;
-	 }
-
-	.circular {
-		border-radius: 30%;
+		max-width:30%;
+		height:auto;
 	}
 
-	.coding {
+	.light-bulb {
 		position: relative;
+		max-width:30%;
+		height:auto;
+	}
+
+	.laptop_lady {
+		position: relative;
+		max-width:30%;
+		height:auto;
 	}
 
 	.dy {
@@ -145,13 +226,18 @@
 		height: 200px;
 		position: relative;
 		margin-bottom: 10px;
-
 	}
+
+	.btn:hover {
+		background:  #c6b497;
+		text-decoration: none;
+		color: white;
+	 }
 
 	.register-button {
 	    font-weight: 400;
-
 	}
+
 
 /* footer */
 	.velog {
@@ -172,8 +258,11 @@
 		border-radius: 30%;
 	}
 
+	.footer {
+	    margin-top: 10%;
+	}
 
-	/* Tutorial List */
+/* Tutorial List */
 
 	.tutorial-title {
 	    color: #343a40;
@@ -181,54 +270,45 @@
 	    font-weight: 900;
 	}
 
-
     .form-control-sm {
         height: auto;
     }
 
-    /* Filter Bar*/
+/* Filter Bar*/
 
 	.filter-bar {
 	    background-color: #214151;
 	    color: white;
-	    padding-bottom: 0px;
+	    padding-bottom: 0.4rem;
 	    padding-top: 0.8rem;
-	    padding-right: 1.2rem;
+	    padding-right: 4%;
+    }
 
-	}
+    .filter-btn {
+        margin-top: 1.8rem;
+        margin-left: 0px;
+    }
 
-
-	.reset_btn {
-	    height: 40px;
-	    margin-top: 1.9rem;
-	    padding-left: 15%;
-	    padding-right: 15%;
-
+	.reset-btn {
+	    height:
+	    padding-left:
+	    padding-right:
 	}
 
     .reset_btn_a {
         text-decoration: none;
 	    color: white;
 	    font-family: ;
-	    font-size: 0.9rem;
-    }
-
-    .search_btn {
-
-        margin-top: 2rem;
-       /* font-size: 0.8rem;   padding-left: 1px;*/
-
+	    font-size:
     }
 
     .sortbydate {
         padding: 0.5rem;
-
     }
 
     .language {
         padding-right: 0.2rem;
         padding-left: 0.5rem;
-
     }
 
     .difficulty {
@@ -239,10 +319,6 @@
     .dropdown {
         font-size: 1000px
     }
-
-
-
-
 
 	.b1:hover {
 		background-color: #fbf7f0 ;
@@ -257,22 +333,143 @@
 	}
 
 /* Register*/
-
-    .helptext{
-        font-family: 'Merriweather', serif;
-		font-size: 100%;
+    .helptext {
+        font-family:
+        font-
+		font-size: 90%;
 		padding-left: 9%;
 		display: inline-block;
         text-align:left;
     }
 
+    .register {
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+    }
 
+/* update_goal */
+    .help-goal {
+        font-family: serif;
+		font-size: 100%;
+		display: inline-block;
+        text-align:left;
+    }
+
+    .helptext-goal{
+        padding-left: 0px;
+    }
 
 /* Curriculum Summary*/
+
+    .white-space {
+        margin-top: -4rem;
+
+    }
+
+    .study-goal-card {
+        background: #eff7e1;
+        padding: 5% 5%;
+    }
 
     .tutorial-count{
         text-align: right;
         color: rgba(0,0,0,.7);
     }
 
+    .goal{
+		display: inline-block;
+        text-align:left;
+    }
 
+    .edit-goal {
+        font-size: 60%;
+    }
+
+/* Tutorial Detail*/
+
+    .description {
+        text-align: left;
+        padding: 10px 12%;
+    }
+
+/* Contact */
+
+    .purpose-statement-en {
+        text-align: left;
+        padding: 7px 5%;
+        font-color: black;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .purpose-statement-ko {
+        text-align: left;
+        padding: 7px 4%;
+        font-color: black;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+/* Community Board */
+    .chalkboard {
+        color: black;
+    }
+
+    .title-community {
+        font-weight: normal;
+        font-size: 1.5rem;
+        margin: 0 auto 20px auto;
+        line-height: 1.7rem;
+    }
+
+    .page-active {
+        background: #214151;
+		border: solid #c6b497 0;
+		text-decoration: none;
+		color: white;
+    }
+
+    .page-active:hover {
+		border: solid #c6b497 0;
+		text-decoration: none;
+		color: white;
+    }
+
+    .page-btn {
+        background: #c6b497;
+		border: solid #c6b497 0;
+		border-color:  #c6b497;
+		text-decoration: none;
+		color: white;
+    }
+
+    .page-btn:hover {
+        background: #214151;
+
+		border-color:  #c6b497;
+		text-decoration: none;
+		color: white;
+    }
+
+    .post-card {
+        padding: 3px auto 10px auto;
+        background: #eff7e1;
+    }
+
+    .post-detail-buttons {
+        padding-top: 5%;
+    }
+
+    .card-subtitle {
+        padding-bottom: 3%;
+    }
+
+    .board-body-text {
+        font-size: 10;
+    }
+
+    /* Add Post*/
+
+    .login-needed{
+        padding-bottom: 5%;
+    }

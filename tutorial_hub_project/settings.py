@@ -2,6 +2,7 @@ from pathlib import Path
 import my_settings
 import os
 
+
 SECRET_KEY = my_settings.SECRET
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,9 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'hub',
+    'community',
 
     'django_filters',
     'bootstrap4',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -125,4 +128,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
 

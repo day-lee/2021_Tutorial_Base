@@ -3,55 +3,57 @@
 {% block content %}
 
 <div class="container">
-
-    <h1> Register </h1>
-    <br/>
-
+<br><br><br>
+    <div class="row">
+        <div class="col-md white-space">
+            <br><strong><span class="title-community"><i class="far fa-user-circle"></i> Register </span></strong>
+        </div>
+    </div>
+<br>
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
-            <div class="row justify-content-center">
-                <div class="col-md">
 
             <table class="table">
                 <div class="row justify-content-center">
-                      <div class="col-sm-4">
+                    <div class="col-sm-4">
                         <div class="card">
+                            <p><label for="id_username"><br>Username</label><br>
+                            <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username"
+                                autofocus required id="id_username" placeholder="username">
+                            </p><br>
 
-                        <p><label for="id_username"><br>Username</label><br>
-                        <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username"
-                            autofocus required id="id_username" placeholder="username">
-                        </p>
+                            <p><label for="id_password1">Password</label> <br>
+                            <input type="password" name="password1" autocomplete="new-password" required id="id_password1"
+                                placeholder="password">
+                            </p><br>
 
-                        <p><label for="id_password1">Password</label> <br>
-                        <input type="password" name="password1" autocomplete="new-password" required id="id_password1"
-                            placeholder="password"></p>
+                            <p><label for="id_password2">Confirm Password</label><br>
+                            <input type="password" name="password2" autocomplete="new-password" required id="id_password2"
+                                placeholder=" confirm password">
+                            </p><br>
 
-                        <p><label for="id_password2">Confirm Password</label><br>
-                        <input type="password" name="password2" autocomplete="new-password" required id="id_password2"
-                            placeholder=" confirm password"></p>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-4 register ">
+                                <button class="btn page-active"> Register </button>
+                                </div>
+                            </div>
                         </div>
-                      </div><hr>
+                    </div>
                 </div>
-                 <div class="row justify-content-center">
-                <div class="col-sm-4 ">
-                <button class="btn btn-primary btn-md"> Register </button>
-                </div>
-            </div> <hr>
+            </table>
 
-                <h2>Tips for Safe Password!</h2>
+<!--help text-->
+            <h3>Tips for Safe Password!</h3>
             <div class="helptext">
-
-                <ul>
+                <ul class="safe-password  text-muted" >
                     <li>Your password can’t be too similar to your other personal information.
                     <li>Your password must contain at least 8 characters.
                     <li>Your password can’t be a commonly used password.
                     <li>Your password can’t be entirely numeric.<br/>
                 </ul>
             </div>
-            </table>
-                </div>
-            </div>
+<!--help text-->
         </form>
     </div>
 </div>

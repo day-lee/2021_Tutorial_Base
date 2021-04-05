@@ -10,7 +10,6 @@ class Tag(models.Model):
     def __str__(self):
         return self.tag
 
-
 class Tutorial(models.Model):
 
     DIFFICULTY = (
@@ -19,12 +18,12 @@ class Tutorial(models.Model):
                 ('Advanced', 'Advanced')
     )
 
-    LANGUAGE = (
+    LANGUAGE   = (
                 ('Korean', 'Korean'),
                 ('English', 'English')
     )
 
-    FORMAT = (
+    FORMAT     = (
                 ('Video', 'Video'),
                 ('Article', 'Article')
     )
@@ -47,6 +46,9 @@ class Tutorial(models.Model):
     #likes
     #slug = models.SlugField()
 
+    class Meta:
+        ordering              = ('-last_updated',)
+
     def __str__(self):
         return str(self.title) + ' | ' + str(self.instructor)
 
@@ -68,14 +70,29 @@ class Tutorial(models.Model):
             "pk": self.pk
         })
 
-
 class Curriculum(models.Model):
     topic                     = models.CharField(max_length=30, null=True, blank=True)
     date_created              = models.DateTimeField(auto_now_add=True, null=True)
-    goal                      = models.CharField(max_length=150, null=True, blank=True)
+    goal                      = models.TextField(max_length=550, null=True, blank=True, default='What is your study goals?')
     note                      = models.CharField(max_length=500, null=True, blank=True)
     user                      = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     tutorial                  = models.ManyToManyField(Tutorial, blank=True)
 
     def __str__(self):
         return str(self.user) + ' | ' + str(self.topic)
+
+    # def get_absolute_url(self):
+    #     return reverse('curriculum-summary', args=(str(self.id)))
+
+
+class Profile(models.Model):
+    user                      = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    bio                       = models.TextField(max_length=1000)
+    profile_pic               = models.ImageField(null=True, blank=True, upload_to="images/profile")
+    fb_url                    = models.CharField(max_length=150, null=True, blank=True)
+    ig_url                    = models.CharField(max_length=150, null=True, blank=True)
+    blog_url                  = models.CharField(max_length=150, null=True, blank=True)
+    goal                      = models.TextField(max_length=150, null=True, blank=True, default='What is your study goals?')
+
+    def __str__(self):
+        return str(self.user)

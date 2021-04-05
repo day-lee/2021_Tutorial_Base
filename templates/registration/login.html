@@ -3,33 +3,50 @@
 
 {% block content %}
 
-  <div class="container">
+<div class="container">
+<br><br><br>
+    <div class="row">
+        <div class="col-md white-space">
+            <br><strong><span class="title-community"><i class="far fa-user-circle"></i> Login </span></strong>
+        </div>
+    </div>
+<br>
 
-<hr><hr><hr>
-<h1> Login </h1>
-<br/>
-<div class="row justify-content-center">
-    <div class="col-sm-4">
-        <div class="card card-body">
-    <div class="form-group">
-
+<div class="form-group">
     <form method="POST">
- {% csrf_token %}
-        <br>
-        <div><label for="id_username"><p>Username</p></label><br>
-            <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username"
-            maxlength="150" required id="id_username" placeholder="username"></div>
-        <br>
-        <div><label for="id_password"><p>Password</p></label><br>
-            <input type="password" name="password" autocomplete="current-password" required id="id_password"
-            placeholder="password"></div>
-        <br/>
-        <button class="btn btn-primary"> Login </button>
+        {% csrf_token %}
+
+    <table class="table">
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div><p><label for="id_username"><br>Username</label></p>
+                            <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username"
+                            maxlength="150" required id="id_username" placeholder="username">
+                            </div>
+
+                            <div><label for="id_password"><p>Password</p></label><br>
+                                <input type="password" name="password" autocomplete="current-password" required id="id_password"
+                                placeholder="password">
+                            </div>
+
+                            <div class="row justify-content-center">
+                            <div class="col-sm-4 register">
+                                <button class="btn page-active"> Login </button>
+                            </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-12 register text-muted">
+                                 Don't have an account yet?
+                                 <a class="nav-link " href="{% url 'hub:register' %}"> Register </a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+    </table>
     </form>
 </div>
 </div>
-</div>
-</div>
 
-  </div>
+<br><br><br><br>
 {% endblock %}

@@ -3,35 +3,51 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+    {% if user.id == form.instance.id %}
 <div class="container">
-<h1> Edit Profile </h1>
-    <div class="form-group">
-    <form method="POST">
-        <input type="hidden" name="csrfmiddlewaretoken" value="gTWdDC1W9u6qniBY0E6tprkZoaM06Hh8EsyWw1CPGy3lsmbAdq0fUh0Gz1k5j7HT">
-
-        <div class="row">
-			<div class="col-md">
-				<div class="card card-body">
-					<h5>Edit Profile</h5>
-				</div>
-				<div class="card card-body table-responsive">
-					<table class="table">
-                        <p><label for="id_username">Username:</label> <input type="text" name="username" value="Admin" class="form-control" maxlength="100" required id="id_username"></p>
-                        <p><label for="id_password">Password:</label> <div id="id_password"></div>
-                         <a href="../change-password/"> Click Here to Change Password </a></p>
-                        <p><label for="id_first_name">First name:</label> <input type="text" name="first_name" value="Dayeon" class="form-control" maxlength="100" required id="id_first_name"></p>
-                        <p><label for="id_last_name">Last name:</label> <input type="text" name="last_name" value="Lee" class="form-control" maxlength="100" required id="id_last_name"></p>
-                        <p><label for="id_email">Email:</label> <input type="email" name="email" value="iamdayeonlee@gmail.com" class="form-control" required id="id_email"></p> <br/>
-                    </table>
-                    <button class="btn btn-secondary btn-sm"> Edit  </button>
-				</div>
-            </div>
+<br><br><br>
+    <div class="row">
+        <div class="col-md white-space">
+            <br><strong><span class="title-community"><i class="far fa-user-circle"></i> Edit Profile </span></strong>
         </div>
+    </div>
+<br>
+
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+
+    <table class="table">
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="card">
+                                <p><label for="id_username"><br>Username</label> <input type="text" name="username"
+                                    value="{{form.instance.username}}" class="form-control" maxlength="100" required id="id_username"></p>
+                                <p><label for="id_password">Password</label> <div id="id_password">
+                                 <a href="../change-password/"> Click Here to Change Password </a></p></div>
+                                <p><label for="id_first_name">First name</label> <input type="text" name="first_name"
+                                    value="{{form.instance.first_name}}"
+                                    class="form-control" maxlength="100" required id="id_first_name"></p>
+                                <p><label for="id_last_name">Last name</label> <input type="text" name="last_name"
+                                    value="{{form.instance.last_name}}"  class="form-control" maxlength="100" required id="id_last_name"></p>
+                                <p><label for="id_email">Email</label> <input type="email" name="email" value="{{form.instance.email}}"
+                                    class="form-control" required id="id_email"></p> <br/>
+
+                            <div class="row justify-content-center">
+                            <div class="col-sm-4 register">
+                                <button class="btn page-active"> Edit </button><br>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </table>
     </form>
- </div>
+</div>
 </div>
 
 
-
+    {% endif %}
 {% endif %}
+
 {% endblock %}

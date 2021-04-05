@@ -13,7 +13,7 @@ from django.contrib.auth.forms import (
 class GoalForm(forms.ModelForm):
 
     class Meta:
-        model       = Profile
+        model       = Curriculum
         fields      = ( 'goal',)
 
 
