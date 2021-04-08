@@ -1,8 +1,7 @@
 from pathlib import Path
-import my_settings
 import os
 
-SECRET_KEY = my_settings.SECRET
+SECRET_KEY =os.environ.get('DJANGO_SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tutorialbasebydaylee.herokuapp.com']
 
 
 # Application definition
