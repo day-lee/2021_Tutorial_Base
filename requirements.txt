@@ -12,9 +12,10 @@ decorator==4.4.2
 distlib==0.3.1
 Django==3.1.7
 django-bootstrap5==0.2.0
-
 django-ckeditor==6.0.0
 django-filter==2.4.0
+django-heroku==0.3.1
+
 django-js-asset==1.2.2
 django-request==1.5.6
 dominate==2.5.2
