@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'community',
 
     'django_filters',
-    'bootstrap4',
+
     'ckeditor',
 ]
 
