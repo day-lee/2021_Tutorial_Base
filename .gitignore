@@ -264,4 +264,4 @@ tutorial_hub_project/my_settings.py
 
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python,linux,vim
-/community/migrations/
+
