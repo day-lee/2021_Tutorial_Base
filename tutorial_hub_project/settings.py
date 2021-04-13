@@ -17,7 +17,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 #DEBUG = os.environ.get('DJANGO_DEBUG')
 DEBUG = True
 
-ALLOWED_HOSTS = ['tutorialbasebydaylee.herokuapp.com']
+ALLOWED_HOSTS = ['tutorialbasebydaylee.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -72,12 +72,12 @@ WSGI_APPLICATION = 'tutorial_hub_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
