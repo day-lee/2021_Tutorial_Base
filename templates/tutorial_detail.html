@@ -6,10 +6,11 @@
 <div class="row justify-content-center">
     <div class="col-sm-6">
         <div class="card">
+            <div class="card-body">
             <div class="row justify-content-center">
                 <div class="col col-md"><br>
                     {% if object.video != None %}
-                      <iframe width="400" height="250" src="https://www.youtube.com/embed/{{object.video}}"
+                      <iframe width="380" height="250" src="https://www.youtube.com/embed/{{object.video}}"
                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
                        gyroscope; picture-in-picture" allowfullscreen></iframe>
                     {% else %}
@@ -17,7 +18,7 @@
                 </div>
             </div>
 
-        <div class="card-body">
+
             <h2><strong>{{object.title}}</strong></h2>
         {% if user.is_authenticated %}
             <a href="{{ object.get_add_to_curriculum_url }}"
