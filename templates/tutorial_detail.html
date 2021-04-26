@@ -6,12 +6,10 @@
 <div class="row justify-content-center">
     <div class="col-sm-6">
         <div class="card">
-            <img src="..." class="card-img-top" alt="">
-
             <div class="row justify-content-center">
                 <div class="col col-md"><br>
                     {% if object.video != None %}
-                      <iframe width="450" height="300" src="https://www.youtube.com/embed/{{object.video}}"
+                      <iframe width="400" height="250" src="https://www.youtube.com/embed/{{object.video}}"
                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
                        gyroscope; picture-in-picture" allowfullscreen></iframe>
                     {% else %}
