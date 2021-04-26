@@ -81,7 +81,7 @@ def add_to_curriculum(request, pk):
     curriculum = curriculum_queryset[0]
     curriculum.tutorial.add(tutorial)
     messages.info(request, "Tutorial added to your curriculum")
-    return redirect("hub:curriculum-summary")
+    return redirect("hub:home")
 
 
 @login_required
