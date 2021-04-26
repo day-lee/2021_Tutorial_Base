@@ -40,7 +40,7 @@
     <div class="row">
         {% if not post.comments.all %}
             <div class="col-md ">
-                <h4> No Comments yet, would you like to make a new comment?</h4>
+                <p> No Comments yet, would you like to make a new comment?</p>
             </div>
             <a href="{% url 'community:add_comment' post.pk %}" class="btn btn-sm page-active">Add Comment</a>
         {% else %}
