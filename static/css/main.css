@@ -99,7 +99,6 @@
 	}
 
 	.register-button {
-	    font-weight: 900;
         color: black;
         font-size: 0.8rem;
         font-family:sans-serif;
@@ -195,8 +194,30 @@
     }
 
 /* Contact */
+
+    .purpose-statement {
+        text-align: left;
+        padding: 7px 5%;
+        font-color: black;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .intro-statement {
+        text-align: left;
+        padding: 4% 5%;
+        font-color: black;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
     .features {
         padding-top: 3%;
+    }
+
+    .past-experience {
+        padding-top: 3%;
+        margin-top: 15%;
     }
 
     .contact-icons {
@@ -238,6 +259,13 @@
 	    font-weight: 400;
 	}
 
+	.goto-cv {
+	    font-weight: 400;
+        color: black;
+        font-size: 0.8rem;
+        font-family:sans-serif;
+
+	}
 
 /* footer */
 	.velog {
@@ -392,23 +420,6 @@
         padding: 10px 12%;
     }
 
-/* Contact */
-
-    .purpose-statement-en {
-        text-align: left;
-        padding: 7px 5%;
-        font-color: black;
-        font-size: 1rem;
-        font-weight: 600;
-    }
-
-    .purpose-statement-ko {
-        text-align: left;
-        padding: 7px 4%;
-        font-color: black;
-        font-size: 0.9rem;
-        font-weight: 600;
-    }
 
 /* Community Board */
     .chalkboard {
