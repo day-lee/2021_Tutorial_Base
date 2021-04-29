@@ -8,23 +8,29 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 white-space">
-            <br><strong><span class="title-community"><i class="fas fa-chalkboard-teacher chalkboard"></i> Community </span></strong> <span> Share knowledge, Find study mate!</span>
+            <br><strong><span class="title-community">
+            <i class="fas fa-chalkboard-teacher chalkboard"></i>
+            Community </span></strong> <span> Share knowledge, Find study mate!</span>
         </div>
-        <div class="col-md-6">
-        </div>
-    </div>
+    <div class="col-md-6">
+</div>
 
-    <div class="container-fluid ">
-        <div class="row justify-content-md-center ">
-             <div class="col-md-8">
-                <div class="card card-body study-goal-card" >
+<div class="container-fluid ">
+    <div class="row justify-content-md-center ">
+        <div class="col-md-8">
+            <div class="card card-body study-goal-card">
 
-      <div class="row justify-content-md-center ">
-        <div class="col">
-          <a href="{% url 'community:add-post' %}"><i class="fas fa-pencil-alt btn-lg "></i></a>
-        </div>
-      </div>
+              <div class="row justify-content-md-center ">
+                <div class="col">
+                  <a href="{% url 'community:add-post' %}"><i class="fas fa-pencil-alt btn-lg "></i></a>
+                </div>
+              </div>
 <!-- Board List-->
+{% if not object_list.exists %}
+<div class="col-md">
+    <h4> No posts yet, <br> would you like to make a new post?</h4>
+</div>
+{% else %}
     <table class="table">
             <tr>
               <th scope="col"></th>
@@ -42,6 +48,7 @@
         </tbody>
         {% endfor %}
     </table>
+{% endif %}
 <!-- Board List-->
 <!--  Pagination  -->
 <div class="row justify-content-md-center ">
@@ -66,12 +73,15 @@
              <a class="btn-sm mb-4 page-btn" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
           {% endif%}
       {% endif %}
+    </div>
+</div>
 <!--  Pagination  -->
-</div>
-</div>
-</div>
-</div>
-</div>
 
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}
 
