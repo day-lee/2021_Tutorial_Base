@@ -183,8 +183,8 @@
 	}
 
 	.title-image {
-	    width: 95%;
-	    height: 95%;
+	    width: 100%;
+	    height: 100%;
 	}
 
 /* Forms */
@@ -205,7 +205,7 @@
 
     .intro-statement {
         text-align: left;
-        padding: 4% 5%;
+        padding: 4%;
         font-color: black;
         font-size: 1rem;
         font-weight: 600;

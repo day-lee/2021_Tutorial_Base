@@ -29,11 +29,11 @@
       <div class="col-lg-6">
       {% if user.is_authenticated %}
           <a href="{% url 'hub:curriculum-summary' %}" role="button">
-            <img class="title-image" src="static/img/curriculum.PNG" alt="gif/photo">
+            <img class="title-image" src="static/img/front-curriculum.gif" alt="gif/photo">
           </a>
       {% else %}
           <a href="{% url 'hub:register' %}" role="button">
-              <img class="title-image" src="static/img/curriculum.PNG" alt="gif/photo">
+              <img class="title-image" src="static/img/front-curriculum.gif" alt="gif/photo">
           </a>
 
        {% endif %}
