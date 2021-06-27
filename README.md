@@ -14,7 +14,7 @@
 - Django
 - (modeling tool)
 - MySQL
-- AWS EC2, AWS RDS
+- Heroku
 - Github
 
 ### 기능Feature
