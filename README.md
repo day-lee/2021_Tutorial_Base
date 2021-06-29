@@ -6,6 +6,9 @@
 
 ### 기간 Project Period
 - 2021.02 - 2021.03
+
+### 만들게 된 계기 
+
  
 ### 설명 Description
 장고&파이썬 학습자들을 위한 온라인 무료 강의 데이터베이스. 커스텀 커리큘럼 만들기, 커뮤니티 게시판 기능을 제공합니다. <br>Description: free online tutorial database for Django&Python learners. Build your own curriculum and post on community board. 
