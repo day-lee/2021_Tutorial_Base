@@ -229,10 +229,11 @@
 	}
 
 	.btn:hover {
-		background:  #c6b497;
+		background: #BBBBBB;
 		text-decoration: none;
 		color: white;
 	 }
+
 
 /* footer */
 	.velog {
@@ -431,7 +432,7 @@
     }
 
     .page-btn {
-        background: #c6b497;
+        background: #BBBBBB;
 		border: solid #c6b497 0;
 		border-color:  #c6b497;
 		text-decoration: none;
@@ -440,7 +441,6 @@
 
     .page-btn:hover {
         background: #214151;
-
 		border-color:  #c6b497;
 		text-decoration: none;
 		color: white;
@@ -448,7 +448,7 @@
 
     .post-card {
         padding: 3px auto 10px auto;
-        background: #eff7e1;
+        background: #F9F9F9;
     }
 
     .post-detail-buttons {
