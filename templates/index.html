@@ -11,31 +11,35 @@
             <br>
 <!-- Title -->
 <div class="container-fluid">
+    <!-- Front image -->
+    <img class="title-image" src="static/img/tut1.png" alt="coding">
+    <br><br>
+    <!-- CTA button -->
     <div class="row">
-      <div class="col-lg-6">
-          <h1 class="big-heading"><br>
-          Build your own curriculum <br> with a curated database!</h1><br><br>
+      <div class="col-sm-12">
       {% if user.is_authenticated %}
-          <a class="btn btn-danger btn-lg goto-curriculum-button" href="{% url 'hub:curriculum-summary' %}" role="button">
-             <i class="fas fa-book"></i> Go to my Curriculum
+          <a class="btn btn-danger btn-lg goto-curriculum-button" href="{% url 'hub:curriculum-summary' %}" role="button"
+          >
+             <i class="fas fa-book"></i> Go to my Curriculum!
           </a>
       {% else %}
           <a class="btn btn-warning btn-lg register-button" href="{% url 'hub:register' %}" role="button">
-             <i class="fas fa-book"></i> Create my Curriculum
+             <i class="fas fa-book"></i> Create your  own Curriculum today!
           </a>
       {% endif %}
       <br><br><br>
       </div>
       <div class="col-lg-6">
-            <img class="title-image" src="static/img/curriculum.PNG" alt="curriculum-example">
-          </a>
+    <!-- img used to be here -->
 
       </div>
     </div>
 <!-- Title -->
 </div>
 <br>
+
 <!--Filter-->
+<div class="col-lg">
 <div class="card card-body filter-bar">
     <form method="get" class="form-style">
         <div class="row justify-content-md-center">
@@ -197,6 +201,7 @@
 <!--Pagination-->
             </div>
         </div>
+    </div>
     </section>
 </div>
 </body>
