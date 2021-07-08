@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} Introduction {% endblock %}
+{% block title %} Tutorial Detail {% endblock %}
 {% block content %}
 
 <br>
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-
+            <br><br>
             <h2><strong>{{object.title}}</strong></h2>
         {% if user.is_authenticated %}
             <a href="{{ object.get_add_to_curriculum_url }}"
@@ -35,32 +35,28 @@
                class="btn btn-secondary btn-md my-0 p" >Back to Tutorial List
             </a><br>
         </div>
-
-            <h5 class="card-title">Description</h5>
+        <br>  <br>
+            <h5 class="card-title"><strong><i class="fas fa-book"></i> Tutorial Information</strong></h5>
             <p class="card-text ">
                 <div class="row">
                     <div class="col col-md-12 description ">
-                        {{object.description|linebreaksbr}} <br><br>
+                          <br> <strong>Description</strong>
+                        <br><br>{{object.description|linebreaksbr}} <br><br>
+                        <strong>Topic:</strong>
+                    {% for item in object.tags.all %}
+                    {{item}}
+                    {% endfor %}
+                        <br><br> <strong>Difficulty:</strong> {{object.difficulty}}
+                       <br><br> <strong>Instructor:</strong> {{object.instructor}}
+                       <br><br> <strong>Last Updated:</strong> {{object.last_updated}}
+                       <br><br> <strong>Language:</strong> {{object.language}}
+                       <br><br> <strong>Duration:</strong> Average {{object.duration}} minutes
+                       <br><br> <strong>Link:</strong> <a href="{{object.link}}">{{object.link}}</a>
+
                     </div>
                 </div>
             </p>
             <br>
-
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"> Topic:
-                    {% for item in object.tags.all %}
-                    {{item}}
-                    {% endfor %}
-                </li>
-                <li class="list-group-item"> Difficulty: {{object.difficulty}}</li>
-                <li class="list-group-item"> Instructor: {{object.instructor}}</li>
-                <li class="list-group-item"> Last Updated: {{object.last_updated}}</li>
-                <li class="list-group-item">Language: {{object.language}}</li>
-                <li class="list-group-item"> Duration: Average {{object.duration}} minutes</li>
-            </ul>
-            <div class="card-body">
-                <a href="{{object.link}}" class="card-link">{{object.link}}</a>
-            </div>
         </div>
     </div>
 </div>
