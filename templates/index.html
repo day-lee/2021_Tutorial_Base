@@ -27,16 +27,9 @@
       <br><br><br>
       </div>
       <div class="col-lg-6">
-      {% if user.is_authenticated %}
-          <a href="{% url 'hub:front-page' %}" role="button">
             <img class="title-image" src="static/img/curriculum.PNG" alt="curriculum-example">
           </a>
-      {% else %}
-          <a href="{% url 'hub:front-page' %}" role="button">
-              <img class="title-image" src="static/img/curriculum.PNG" alt="curriculum-example">
-          </a>
 
-       {% endif %}
       </div>
     </div>
 <!-- Title -->
