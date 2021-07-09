@@ -24,7 +24,7 @@ Abundant tutorials on the internet greatly helped me to grow as a developer;
 
 ### 📌 프로젝트 중점 사항
 - 게시판, 커리큘럼(장바구니) CRUD 기능 | Board, Curriculum(Cart) CRUD
-- 데이터 필터, 페이징 | Filter and pagination  
+- Query String을 사용한 검색, 페이징 | Search with Query String and pagination  
 - 권한에 따른 기능 구분 | Permission system
 - 객체지향 디자인 패턴 적용 | OOP design pattern
 - 문서화 |  Docstrings 
