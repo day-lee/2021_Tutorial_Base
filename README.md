@@ -66,4 +66,4 @@ Abundant tutorials on the internet greatly helped me to grow as a developer;
 - CKEditor 
 <br>
 
-![image](https://user-images.githubusercontent.com/73591588/124931390-2139e000-e03d-11eb-8a3f-8c245187d225.png)
+![image](https://user-images.githubusercontent.com/73591588/125044119-a02f2700-e0d6-11eb-801b-4c251e7af1d0.png)
