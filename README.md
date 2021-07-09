@@ -1,12 +1,11 @@
 # 📚 튜토리얼 베이스 Tutorial Base
 
-### https://tutorialbasebydaylee.herokuapp.com/
 
 <br>기술문제 해결 블로그 포스트 TBC
 <br>영상 TBC
 
-### 기간 Project Period
-- 2021.02 - 2021.03
+### 📌 기간 Project Period
+- 2021.02 - 2021.03 & Ongoing
  
 ### 📌 프로젝트 개요 Description
 튜토리얼 베이스는 파이썬과 장고 학습자를 위한 프로젝트입니다. 
