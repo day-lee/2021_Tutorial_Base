@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('TUTORIAL_SECRET_KEY')
 
 #DEBUG = os.environ.get('DJANGO_DEBUG')
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['tutorialbasebydaylee.herokuapp.com', '127.0.0.1']
 
