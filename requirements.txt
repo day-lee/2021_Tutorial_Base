@@ -6,7 +6,7 @@ django-bootstrap4==2.3.1
 django-bootstrap5==0.2.0
 django-ckeditor==6.0.0
 django-filter==2.4.0
-django-heroku==0.3.1
+
 django-js-asset==1.2.2
 django-request==1.5.6
 dominate==2.5.2
@@ -20,4 +20,3 @@ urllib3==1.26.2
 Werkzeug==1.0.1
 Pillow==8.1.2
 
-psycopg2-binary==2.8.5
