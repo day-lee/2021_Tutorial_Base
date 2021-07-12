@@ -1,8 +1,8 @@
 # 📚 튜토리얼 베이스 Tutorial Base
 
+### 📌 [배운점&피드백 보러가기](https://www.notion.so/ff25ee0bef7144be92ec4f2319a58b15)
 
-<br>기술문제 해결 블로그 포스트 TBC
-<br>영상 TBC
+### 📌 [Demo Video 보러가기](https://youtu.be/7yJysD6QQ08)
 
 ### 📌 기간 Project Period
 - 2021.02 - 2021.03 & Ongoing
@@ -66,3 +66,5 @@ Abundant tutorials on the internet greatly helped me to grow as a developer;
 <br>
 
 ![image](https://user-images.githubusercontent.com/73591588/125044119-a02f2700-e0d6-11eb-801b-4c251e7af1d0.png)
+
+
