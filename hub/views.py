@@ -6,7 +6,6 @@
 # 	return render(request, 'home.html')
 
 from django.http import HttpResponseRedirect
-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Tutorial, Curriculum, Profile
@@ -21,7 +20,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from .forms import GoalForm, PasswordEditForm
 from .forms import EditProfileForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-HttpResponseRedirect
+
 
 def HomeView(request):
     # Filter
@@ -75,7 +74,7 @@ class PasswordEditView(PasswordChangeView):
 # Curriculum
 @login_required
 def add_to_curriculum(request, pk):
-    '''Add tutorial to user's curriculum, show message, redirect to filter postion '''
+    '''Add tutorial to user's curriculum, show message, redirect to filter position '''
     tutorial = get_object_or_404(Tutorial, pk=pk)
     Curriculum.objects.get_or_create(user=request.user)
     curriculum_queryset = Curriculum.objects.filter(user=request.user)
@@ -87,6 +86,7 @@ def add_to_curriculum(request, pk):
 
 @login_required
 def remove_from_curriculum(request, pk):
+    '''Remove tutorial object from curriculum, show message and redirect to curriculum page'''
     tutorial = get_object_or_404(Tutorial, pk=pk)
     curriculum = Curriculum.objects.filter(
         user=request.user,
@@ -98,6 +98,10 @@ def remove_from_curriculum(request, pk):
 
 @login_required
 def CurriculumSummaryView(request):
+    '''
+    When object exists, then show total number, filter, pagination
+    if not, catch exception then show message and redirect to home
+    '''
     try:
         context = {}
         curriculum = Curriculum.objects.get(user=request.user)
@@ -127,7 +131,11 @@ def CurriculumSummaryView(request):
 
 @login_required()
 def UpdateGoalView(request, pk):
-    goal = Curriculum.objects.get(id=pk)  # user name?
+    '''
+    When GET method, show saved goal text
+    When POST method, show user specific goal edit form and save it
+    '''
+    goal = Curriculum.objects.get(id=pk)
     user_goal = Curriculum.objects.get(user=request.user)
     form = GoalForm(instance=user_goal)
     curriculum = Curriculum.objects.filter(user=request.user)

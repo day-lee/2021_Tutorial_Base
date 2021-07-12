@@ -1,15 +1,9 @@
-
-# for migrations at heroku
-# from django.shortcuts import render
-#
-# def index(request):
-# 	return render(request, 'index.html')
-
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy
+
 
 class BoardView(ListView):
     model = Post
