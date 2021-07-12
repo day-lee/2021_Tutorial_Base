@@ -5,7 +5,7 @@
 # def home(request):
 # 	return render(request, 'home.html')
 
-
+from django.http import HttpResponseRedirect
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
@@ -21,7 +21,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from .forms import GoalForm, PasswordEditForm
 from .forms import EditProfileForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-
+HttpResponseRedirect
 
 def HomeView(request):
     # Filter
@@ -75,14 +75,15 @@ class PasswordEditView(PasswordChangeView):
 # Curriculum
 @login_required
 def add_to_curriculum(request, pk):
+    '''Add tutorial to user's curriculum, show message, redirect to filter postion '''
     tutorial = get_object_or_404(Tutorial, pk=pk)
     Curriculum.objects.get_or_create(user=request.user)
     curriculum_queryset = Curriculum.objects.filter(user=request.user)
     curriculum = curriculum_queryset[0]
     curriculum.tutorial.add(tutorial)
     messages.info(request, "Tutorial added to your curriculum")
-    return redirect("hub:home")
-
+    #return redirect("hub:home")
+    return HttpResponseRedirect('/#home-filter')
 
 @login_required
 def remove_from_curriculum(request, pk):
