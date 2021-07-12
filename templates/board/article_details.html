@@ -39,12 +39,20 @@
 <br><br>
     <div class="row">
         {% if not post.comments.all %}
-            <div class="col-md ">
+              {% if user.is_authenticated %}
+                <div class="col-md ">
                 <p> No Comments yet, would you like to make a new comment?</p>
-            </div>
-            <a href="{% url 'community:add_comment' post.pk %}" class="btn btn-sm page-active">Add Comment</a>
+                <a href="{% url 'community:add_comment' post.pk %}" class="btn btn-sm page-active">Add Comment</a>
+              {% else %}
+                <p> Please Log in to make a comment</p>
+              {% endif %}
+                </div>
         {% else %}
-            <a href="{% url 'community:add_comment' post.pk %}" class="btn btn-sm page-active"> Add Comment </a>
+           {% if user.is_authenticated %}
+                <a href="{% url 'community:add_comment' post.pk %}" class="btn btn-sm page-active">Add Comment</a>
+            {% else %}
+                <p> Please Log in to make a comment</p>
+            {% endif %}
     </div>
 <!--Comment-->
     <ul class="list-group list-group-flush">
