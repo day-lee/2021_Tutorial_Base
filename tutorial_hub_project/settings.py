@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-#import django_heroku
+import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('TUTORIAL_SECRET_KEY')
 
 #DEBUG = os.environ.get('DJANGO_DEBUG')
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['tutorialbasebydaylee.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -125,4 +125,4 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 #Heroku
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
